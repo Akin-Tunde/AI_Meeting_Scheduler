@@ -1,0 +1,1080 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "%date%,are,avail,on,you": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "%date%,ani,do,have,on,open,you": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "%date%,is,like,on,schedul,what,your": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "%date%,a,book,can,i,meet,on": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "are,avail,time,what": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "avail,me,show,your": {
+            "intent": "check.availability",
+            "domain": "default"
+          },
+          "charg,do,how,much,you": {
+            "intent": "check.pricing",
+            "domain": "default"
+          },
+          "is,rate,what,your": {
+            "intent": "check.pricing",
+            "domain": "default"
+          },
+          "a,for,how,meet,much": {
+            "intent": "check.pricing",
+            "domain": "default"
+          },
+          "are,fee,what,your": {
+            "intent": "check.pricing",
+            "domain": "default"
+          },
+          "consult,cost,of": {
+            "intent": "check.pricing",
+            "domain": "default"
+          },
+          "a,book,i,meet,to,want": {
+            "intent": "book.meeting",
+            "domain": "default"
+          },
+          "a,for,me,meet,schedul": {
+            "intent": "book.meeting",
+            "domain": "default"
+          },
+          "a,book,session": {
+            "intent": "book.meeting",
+            "domain": "default"
+          },
+          "a,reserv,slot,time": {
+            "intent": "book.meeting",
+            "domain": "default"
+          },
+          "cancel,i,meet,my,to,want": {
+            "intent": "cancel.meeting",
+            "domain": "default"
+          },
+          "book,cancel,my": {
+            "intent": "cancel.meeting",
+            "domain": "default"
+          },
+          "a,i,need,refund": {
+            "intent": "cancel.meeting",
+            "domain": "default"
+          },
+          "hello": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "help": {
+            "intent": "help",
+            "domain": "default"
+          },
+          "can,do,what,you": {
+            "intent": "help",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "check.availability": "default",
+          "check.pricing": "default",
+          "book.meeting": "default",
+          "cancel.meeting": "default",
+          "greeting": "default",
+          "help": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Are you available on %date%",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "Do you have any openings on %date%",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is your schedule like on %date%",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can I book a meeting on %date%",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "What times are available",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "Show me your availability",
+            "intent": "check.availability"
+          },
+          {
+            "domain": "default",
+            "utterance": "How much do you charge",
+            "intent": "check.pricing"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is your rate",
+            "intent": "check.pricing"
+          },
+          {
+            "domain": "default",
+            "utterance": "How much for a meeting",
+            "intent": "check.pricing"
+          },
+          {
+            "domain": "default",
+            "utterance": "What are your fees",
+            "intent": "check.pricing"
+          },
+          {
+            "domain": "default",
+            "utterance": "Cost of consultation",
+            "intent": "check.pricing"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to book a meeting",
+            "intent": "book.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Schedule a meeting for me",
+            "intent": "book.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Book a session",
+            "intent": "book.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Reserve a time slot",
+            "intent": "book.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "I want to cancel my meeting",
+            "intent": "cancel.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Cancel my booking",
+            "intent": "cancel.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "I need a refund",
+            "intent": "cancel.meeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Help",
+            "intent": "help"
+          },
+          {
+            "domain": "default",
+            "utterance": "What can you do",
+            "intent": "help"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "are": 1,
+              "you": 1,
+              "avail": 1,
+              "on": 1,
+              "%date%": 1,
+              "do": 1,
+              "have": 1,
+              "ani": 1,
+              "open": 1,
+              "what": 1,
+              "is": 1,
+              "your": 1,
+              "schedul": 1,
+              "like": 1,
+              "can": 1,
+              "i": 1,
+              "book": 1,
+              "a": 1,
+              "meet": 1,
+              "time": 1,
+              "show": 1,
+              "me": 1,
+              "how": 1,
+              "much": 1,
+              "charg": 1,
+              "rate": 1,
+              "for": 1,
+              "fee": 1,
+              "cost": 1,
+              "of": 1,
+              "consult": 1,
+              "want": 1,
+              "to": 1,
+              "session": 1,
+              "reserv": 1,
+              "slot": 1,
+              "cancel": 1,
+              "my": 1,
+              "need": 1,
+              "refund": 1,
+              "hello": 1,
+              "hi": 1,
+              "hey": 1,
+              "help": 1
+            },
+            "intents": {
+              "check.availability": 1,
+              "check.pricing": 1,
+              "book.meeting": 1,
+              "cancel.meeting": 1,
+              "greeting": 1,
+              "help": 1
+            },
+            "intentFeatures": {
+              "check.availability": {
+                "are": 1,
+                "you": 1,
+                "avail": 1,
+                "on": 1,
+                "%date%": 1,
+                "do": 1,
+                "have": 1,
+                "ani": 1,
+                "open": 1,
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "schedul": 1,
+                "like": 1,
+                "can": 1,
+                "i": 1,
+                "book": 1,
+                "a": 1,
+                "meet": 1,
+                "time": 1,
+                "show": 1,
+                "me": 1
+              },
+              "check.pricing": {
+                "how": 1,
+                "much": 1,
+                "do": 1,
+                "you": 1,
+                "charg": 1,
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "rate": 1,
+                "for": 1,
+                "a": 1,
+                "meet": 1,
+                "are": 1,
+                "fee": 1,
+                "cost": 1,
+                "of": 1,
+                "consult": 1
+              },
+              "book.meeting": {
+                "i": 1,
+                "want": 1,
+                "to": 1,
+                "book": 1,
+                "a": 1,
+                "meet": 1,
+                "schedul": 1,
+                "for": 1,
+                "me": 1,
+                "session": 1,
+                "reserv": 1,
+                "time": 1,
+                "slot": 1
+              },
+              "cancel.meeting": {
+                "i": 1,
+                "want": 1,
+                "to": 1,
+                "cancel": 1,
+                "my": 1,
+                "meet": 1,
+                "book": 1,
+                "need": 1,
+                "a": 1,
+                "refund": 1
+              },
+              "greeting": {
+                "hello": 1,
+                "hi": 1,
+                "hey": 1
+              },
+              "help": {
+                "help": 1,
+                "what": 1,
+                "can": 1,
+                "you": 1,
+                "do": 1
+              }
+            },
+            "featuresToIntent": {
+              "are": [
+                "check.availability",
+                "check.pricing"
+              ],
+              "you": [
+                "check.availability",
+                "check.pricing",
+                "help"
+              ],
+              "avail": [
+                "check.availability"
+              ],
+              "on": [
+                "check.availability"
+              ],
+              "%date%": [
+                "check.availability"
+              ],
+              "do": [
+                "check.availability",
+                "check.pricing",
+                "help"
+              ],
+              "have": [
+                "check.availability"
+              ],
+              "ani": [
+                "check.availability"
+              ],
+              "open": [
+                "check.availability"
+              ],
+              "what": [
+                "check.availability",
+                "check.pricing",
+                "help"
+              ],
+              "is": [
+                "check.availability",
+                "check.pricing"
+              ],
+              "your": [
+                "check.availability",
+                "check.pricing"
+              ],
+              "schedul": [
+                "check.availability",
+                "book.meeting"
+              ],
+              "like": [
+                "check.availability"
+              ],
+              "can": [
+                "check.availability",
+                "help"
+              ],
+              "i": [
+                "check.availability",
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "book": [
+                "check.availability",
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "a": [
+                "check.availability",
+                "check.pricing",
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "meet": [
+                "check.availability",
+                "check.pricing",
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "time": [
+                "check.availability",
+                "book.meeting"
+              ],
+              "show": [
+                "check.availability"
+              ],
+              "me": [
+                "check.availability",
+                "book.meeting"
+              ],
+              "how": [
+                "check.pricing"
+              ],
+              "much": [
+                "check.pricing"
+              ],
+              "charg": [
+                "check.pricing"
+              ],
+              "rate": [
+                "check.pricing"
+              ],
+              "for": [
+                "check.pricing",
+                "book.meeting"
+              ],
+              "fee": [
+                "check.pricing"
+              ],
+              "cost": [
+                "check.pricing"
+              ],
+              "of": [
+                "check.pricing"
+              ],
+              "consult": [
+                "check.pricing"
+              ],
+              "want": [
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "to": [
+                "book.meeting",
+                "cancel.meeting"
+              ],
+              "session": [
+                "book.meeting"
+              ],
+              "reserv": [
+                "book.meeting"
+              ],
+              "slot": [
+                "book.meeting"
+              ],
+              "cancel": [
+                "cancel.meeting"
+              ],
+              "my": [
+                "cancel.meeting"
+              ],
+              "need": [
+                "cancel.meeting"
+              ],
+              "refund": [
+                "cancel.meeting"
+              ],
+              "hello": [
+                "greeting"
+              ],
+              "hi": [
+                "greeting"
+              ],
+              "hey": [
+                "greeting"
+              ],
+              "help": [
+                "help"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "are",
+                "you",
+                "avail",
+                "on",
+                "%date%",
+                "do",
+                "have",
+                "ani",
+                "open",
+                "what",
+                "is",
+                "your",
+                "schedul",
+                "like",
+                "can",
+                "i",
+                "book",
+                "a",
+                "meet",
+                "time",
+                "show",
+                "me",
+                "how",
+                "much",
+                "charg",
+                "rate",
+                "for",
+                "fee",
+                "cost",
+                "of",
+                "consult",
+                "want",
+                "to",
+                "session",
+                "reserv",
+                "slot",
+                "cancel",
+                "my",
+                "need",
+                "refund",
+                "hello",
+                "hi",
+                "hey",
+                "help"
+              ],
+              "intents": [
+                "check.availability",
+                "check.pricing",
+                "book.meeting",
+                "cancel.meeting",
+                "greeting",
+                "help"
+              ],
+              "perceptrons": [
+                [
+                  0.5170820951461792,
+                  -3.106107473373413,
+                  7.192258834838867,
+                  4.940974235534668,
+                  4.940974235534668,
+                  -0.06659706681966782,
+                  2.47497820854187,
+                  2.47497820854187,
+                  2.47497820854187,
+                  1.4561002254486084,
+                  -0.20622988045215607,
+                  0.7987366914749146,
+                  0.381813645362854,
+                  1.899775505065918,
+                  1.7038311958312988,
+                  2.035554885864258,
+                  1.4890000820159912,
+                  -1.572731852531433,
+                  0.5521993041038513,
+                  4.778223037719727,
+                  3.8379313945770264,
+                  2.3219926357269287,
+                  -0.8065593838691711,
+                  -0.8065593838691711,
+                  -0.5130215883255005,
+                  -2.10508131980896,
+                  -1.768964409828186,
+                  -2.8331198692321777,
+                  -0.27770209312438965,
+                  -0.27770209312438965,
+                  -0.27770209312438965,
+                  -1.2749102115631104,
+                  -1.2749102115631104,
+                  -0.3792773187160492,
+                  -1.6084345579147339,
+                  -1.6084345579147339,
+                  -0.7818078994750977,
+                  -0.7818078994750977,
+                  -0.2855167090892792,
+                  -0.2855167090892792,
+                  -0.31233686208724976,
+                  -0.30806663632392883,
+                  -0.2993069589138031,
+                  -0.29076531529426575,
+                  0.08379063924029469
+                ],
+                [
+                  2.113602876663208,
+                  -0.356627881526947,
+                  -3.0137364864349365,
+                  -2.510430335998535,
+                  -2.510430335998535,
+                  -0.051698796451091766,
+                  -0.1279240846633911,
+                  -0.1279240846633911,
+                  -0.1279240846633911,
+                  1.889900803565979,
+                  2.0746476650238037,
+                  5.08139705657959,
+                  -3.1128554344177246,
+                  -2.0400402545928955,
+                  -2.602919816970825,
+                  -1.069197654724121,
+                  -1.2208739519119263,
+                  -0.2038126438856125,
+                  0.8872202038764954,
+                  -2.1140782833099365,
+                  -1.060186505317688,
+                  -2.133002281188965,
+                  5.422399044036865,
+                  5.422399044036865,
+                  2.716438055038452,
+                  4.114783763885498,
+                  1.632720947265625,
+                  4.066682815551758,
+                  4.385722637176514,
+                  4.385722637176514,
+                  4.385722637176514,
+                  -0.6725969314575195,
+                  -0.6725969314575195,
+                  -0.469792902469635,
+                  -0.40140894055366516,
+                  -0.40140894055366516,
+                  -0.43735453486442566,
+                  -0.43735453486442566,
+                  -0.3211592733860016,
+                  -0.3211592733860016,
+                  -1.1445448398590088,
+                  -1.1334139108657837,
+                  -1.126830816268921,
+                  -1.121746301651001,
+                  1.1267720475824876
+                ],
+                [
+                  -0.5827378034591675,
+                  -0.26092231273651123,
+                  -1.4619462490081787,
+                  -3.0063726902008057,
+                  -3.0063726902008057,
+                  -0.17801117897033691,
+                  -0.03258061036467552,
+                  -0.03258061036467552,
+                  -0.03258061036467552,
+                  -0.8230493068695068,
+                  -0.15286362171173096,
+                  -1.0758708715438843,
+                  3.834428548812866,
+                  -0.12395739555358887,
+                  -2.778536319732666,
+                  -2.067196846008301,
+                  3.986673593521118,
+                  6.127951145172119,
+                  0.5001408457756042,
+                  2.297262191772461,
+                  -0.8645052313804626,
+                  3.161628007888794,
+                  -3.6409356594085693,
+                  -3.6409356594085693,
+                  -0.015384424477815628,
+                  -0.009884476661682129,
+                  0.41568392515182495,
+                  0,
+                  -0.08398361504077911,
+                  -0.08398361504077911,
+                  -0.08398361504077911,
+                  2.749180316925049,
+                  2.749180316925049,
+                  3.9237613677978516,
+                  2.809372663497925,
+                  2.809372663497925,
+                  -2.1139371395111084,
+                  -2.1139371395111084,
+                  -2.151844024658203,
+                  -2.151844024658203,
+                  -0.39554017782211304,
+                  -0.3834016025066376,
+                  -0.3716069161891937,
+                  -0.36694246530532837,
+                  0.24249442244971312
+                ],
+                [
+                  -0.25724899768829346,
+                  -0.3783029317855835,
+                  -0.36131858825683594,
+                  -1.113280177116394,
+                  -1.113280177116394,
+                  -0.2701532542705536,
+                  -0.04900452494621277,
+                  -0.04900452494621277,
+                  -0.04900452494621277,
+                  -0.47454559803009033,
+                  -0.16736067831516266,
+                  -0.3863658905029297,
+                  -0.13334763050079346,
+                  -0.04429932311177254,
+                  -1.0173622369766235,
+                  3.3687827587127686,
+                  -0.3321845531463623,
+                  -0.23172904551029205,
+                  -2.150789499282837,
+                  -0.3248541057109833,
+                  -0.1464327573776245,
+                  -0.2548035979270935,
+                  -0.32024508714675903,
+                  -0.32024508714675903,
+                  -0.06139744818210602,
+                  -0.10742811113595963,
+                  -0.34081974625587463,
+                  -0.04506964609026909,
+                  -0.35432231426239014,
+                  -0.35432231426239014,
+                  -0.35432231426239014,
+                  -0.7723138928413391,
+                  -0.7723138928413391,
+                  -0.5203462839126587,
+                  -0.2183106243610382,
+                  -0.2183106243610382,
+                  6.857619285583496,
+                  6.857619285583496,
+                  5.123362064361572,
+                  5.123362064361572,
+                  -0.9008037447929382,
+                  -0.8962134718894958,
+                  -0.8917744159698486,
+                  -0.887100875377655,
+                  0.8965548797485581
+                ],
+                [
+                  -0.9929308295249939,
+                  -1.6146306991577148,
+                  -1.4580206871032715,
+                  -0.7340835332870483,
+                  -0.7340835332870483,
+                  -1.3915578126907349,
+                  -0.3134445250034332,
+                  -0.3134445250034332,
+                  -0.3134445250034332,
+                  -1.9731459617614746,
+                  -0.7634032368659973,
+                  -2.0375006198883057,
+                  -0.3025369346141815,
+                  -0.10016221553087234,
+                  -0.5050740838050842,
+                  -1.1972249746322632,
+                  -2.171339511871338,
+                  -2.751282215118408,
+                  -0.8908268213272095,
+                  -1.1292186975479126,
+                  -0.8688762187957764,
+                  -1.0466358661651611,
+                  -0.8822569847106934,
+                  -0.8822569847106934,
+                  -0.6383827924728394,
+                  -0.6379972696304321,
+                  -0.42100510001182556,
+                  -0.40378615260124207,
+                  -1.7991620302200317,
+                  -1.7991620302200317,
+                  -1.7991620302200317,
+                  -0.38574346899986267,
+                  -0.38574346899986267,
+                  -0.637951135635376,
+                  -0.7631475925445557,
+                  -0.7631475925445557,
+                  -1.612039566040039,
+                  -1.612039566040039,
+                  -0.727402925491333,
+                  -0.727402925491333,
+                  8.664384841918945,
+                  8.67962646484375,
+                  8.6281156539917,
+                  -4.968039512634277,
+                  5.417168582927249
+                ],
+                [
+                  -1.945290207862854,
+                  2.2174572944641113,
+                  -1.3872606754302979,
+                  -1.8477790355682373,
+                  -1.8477790355682373,
+                  2.45552921295166,
+                  -0.9646787643432617,
+                  -0.9646787643432617,
+                  -0.9646787643432617,
+                  2.5753557682037354,
+                  -1.3308876752853394,
+                  -1.962327480316162,
+                  -0.19925613701343536,
+                  -0.10879447311162949,
+                  5.103767395019531,
+                  -0.7322253584861755,
+                  -1.0326210260391235,
+                  -0.9044742584228516,
+                  -0.6551907062530518,
+                  -1.1578470468521118,
+                  -0.023328224197030067,
+                  -0.10142334550619125,
+                  -2.1955885887145996,
+                  -2.1955885887145996,
+                  -2.1931815147399902,
+                  -1.196349859237671,
+                  -0.06712573766708374,
+                  -0.5943671464920044,
+                  -0.6395807862281799,
+                  -0.6395807862281799,
+                  -0.6395807862281799,
+                  -0.0695747584104538,
+                  -0.0695747584104538,
+                  -0.11444249749183655,
+                  -0.040157124400138855,
+                  -0.040157124400138855,
+                  -0.443607896566391,
+                  -0.443607896566391,
+                  -0.14404453337192535,
+                  -0.14404453337192535,
+                  -1.727472186088562,
+                  -1.7073017358779907,
+                  -1.6869975328445435,
+                  11.804778099060059,
+                  1.9180054282951882
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "Are you available on %date%"
+      ],
+      [
+        "en",
+        "Do you have any openings on %date%"
+      ],
+      [
+        "en",
+        "What is your schedule like on %date%"
+      ],
+      [
+        "en",
+        "Can I book a meeting on %date%"
+      ],
+      [
+        "en",
+        "What times are available"
+      ],
+      [
+        "en",
+        "Show me your availability"
+      ],
+      [
+        "en",
+        "How much do you charge"
+      ],
+      [
+        "en",
+        "What is your rate"
+      ],
+      [
+        "en",
+        "How much for a meeting"
+      ],
+      [
+        "en",
+        "What are your fees"
+      ],
+      [
+        "en",
+        "Cost of consultation"
+      ],
+      [
+        "en",
+        "I want to book a meeting"
+      ],
+      [
+        "en",
+        "Schedule a meeting for me"
+      ],
+      [
+        "en",
+        "Book a session"
+      ],
+      [
+        "en",
+        "Reserve a time slot"
+      ],
+      [
+        "en",
+        "I want to cancel my meeting"
+      ],
+      [
+        "en",
+        "Cancel my booking"
+      ],
+      [
+        "en",
+        "I need a refund"
+      ],
+      [
+        "en",
+        "Hello"
+      ],
+      [
+        "en",
+        "Hi"
+      ],
+      [
+        "en",
+        "Hey"
+      ],
+      [
+        "en",
+        "Help"
+      ],
+      [
+        "en",
+        "What can you do"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "check.availability": [
+          {
+            "answer": "I can check my availability for you. What date are you interested in?"
+          }
+        ],
+        "check.pricing": [
+          {
+            "answer": "My standard rate is $50 USDC for a 30-minute session and $90 USDC for a 60-minute session. Would you like to know more?"
+          }
+        ],
+        "book.meeting": [
+          {
+            "answer": "Great! To book a meeting, I need to know your preferred date and time. What works best for you?"
+          }
+        ],
+        "cancel.meeting": [
+          {
+            "answer": "I can help you cancel your meeting. Please provide your booking details."
+          }
+        ],
+        "greeting": [
+          {
+            "answer": "Hello! I'm your AI scheduling assistant. I can help you check availability, pricing, and book meetings. How can I assist you today?"
+          }
+        ],
+        "help": [
+          {
+            "answer": "I can help you with: 1) Checking availability, 2) Viewing pricing, 3) Booking meetings, 4) Canceling bookings. What would you like to do?"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {
+    "check.availability": {
+      "date": {
+        "intent": "check.availability",
+        "entity": "date",
+        "mandatory": false,
+        "locales": {}
+      }
+    }
+  }
+}
