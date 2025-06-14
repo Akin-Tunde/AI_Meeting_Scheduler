@@ -112,14 +112,21 @@ class MultiHostAIAgent {
       console.log(`New conversation with: ${peerAddress}`);
 
       // Get or create session
-      let session = await this.sessionManager.getActiveSession(peerAddress);
-      if (!session) {
-        session = await this.sessionManager.createSession(
-          peerAddress,
-          this.currentHostAddress,
-          'multi_host_discovery'
-        );
-      }
+     const allSessions = await this.sessionManager.getActiveSessions();
+let session = allSessions.find(
+  s => s.requesterAddress === peerAddress && s.hostAddress === this.currentHostAddress
+);
+
+if (!session) {
+  session = await this.sessionManager.createSession({
+    sessionId: `sess_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`,
+    hostAddress: this.currentHostAddress,
+    requesterAddress: peerAddress,
+    status: 'pending',
+    metadata: { type: 'multi_host_discovery' }
+  });
+}
+
 
       // Listen for messages in this conversation
       for await (const message of await conversation.streamMessages()) {
@@ -143,7 +150,7 @@ class MultiHostAIAgent {
             // Store response
             await this.sessionManager.addMessage(
               session.sessionId,
-              'assistant',
+              'agent',
               response,
               this.wallet.address
             );

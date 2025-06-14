@@ -240,70 +240,75 @@ class PersistentSessionManager {
 
   // Host Profile Management
   async createOrUpdateHostProfile(hostAddress: string, profileData: {
-    displayName?: string;
-    bio?: string;
-    profileImageUrl?: string;
-    defaultPrice?: number;
-    defaultCurrency?: string;
-    timezone?: string;
-    agentPersonality?: Record<string, any>;
-    autoConfirmMeetings?: boolean;
-    responseDelaySeconds?: number;
-  }): Promise<void> {
-    this.ensureInitialized();
-    
-    try {
-      await this.supabaseClient.createOrUpdateHostProfile({
-        host_address: hostAddress,
-        display_name: profileData.displayName,
-        bio: profileData.bio,
-        profile_image_url: profileData.profileImageUrl,
-        default_price: profileData.defaultPrice,
-        default_currency: profileData.defaultCurrency || 'ETH',
-        timezone: profileData.timezone || 'UTC',
-        agent_personality: profileData.agentPersonality || {},
-        auto_confirm_meetings: profileData.autoConfirmMeetings || false,
-        response_delay_seconds: profileData.responseDelaySeconds || 0,
-        is_active: true,
-        metadata: {}
-      });
-    } catch (error) {
-      console.error('Error creating/updating host profile:', error);
-      throw error;
-    }
-  }
+  displayName?: string;
+  bio?: string;
+  profileImageUrl?: string;
+  defaultPrice?: number;
+  defaultCurrency?: string;
+  timezone?: string;
+  agentPersonality?: Record<string, any>;
+  autoConfirmMeetings?: boolean;
+  responseDelaySeconds?: number;
+  metadata?: Record<string, any>;  // ✅ Add this line
+}): Promise<void> {
+  this.ensureInitialized();
 
-  async getHostProfile(hostAddress: string): Promise<{
-    displayName?: string;
-    bio?: string;
-    profileImageUrl?: string;
-    defaultPrice?: number;
-    defaultCurrency: string;
-    timezone: string;
-    agentPersonality: Record<string, any>;
-    autoConfirmMeetings: boolean;
-    responseDelaySeconds: number;
-  } | null> {
-    this.ensureInitialized();
-    
-    try {
-      const profile = await this.supabaseClient.getHostProfile(hostAddress);
-      return profile ? {
-        displayName: profile.display_name,
-        bio: profile.bio,
-        profileImageUrl: profile.profile_image_url,
-        defaultPrice: profile.default_price,
-        defaultCurrency: profile.default_currency,
-        timezone: profile.timezone,
-        agentPersonality: profile.agent_personality,
-        autoConfirmMeetings: profile.auto_confirm_meetings,
-        responseDelaySeconds: profile.response_delay_seconds
-      } : null;
-    } catch (error) {
-      console.error('Error getting host profile:', error);
-      return null;
-    }
+  try {
+    await this.supabaseClient.createOrUpdateHostProfile({
+      host_address: hostAddress,
+      display_name: profileData.displayName,
+      bio: profileData.bio,
+      profile_image_url: profileData.profileImageUrl,
+      default_price: profileData.defaultPrice,
+      default_currency: profileData.defaultCurrency || 'ETH',
+      timezone: profileData.timezone || 'UTC',
+      agent_personality: profileData.agentPersonality || {},
+      auto_confirm_meetings: profileData.autoConfirmMeetings || false,
+      response_delay_seconds: profileData.responseDelaySeconds || 0,
+      is_active: true,
+      metadata: profileData.metadata || {} // ✅ Use it here
+    });
+  } catch (error) {
+    console.error('Error creating/updating host profile:', error);
+    throw error;
   }
+}
+
+
+ async getHostProfile(hostAddress: string): Promise<{
+  displayName?: string;
+  bio?: string;
+  profileImageUrl?: string;
+  defaultPrice?: number;
+  defaultCurrency: string;
+  timezone: string;
+  agentPersonality: Record<string, any>;
+  autoConfirmMeetings: boolean;
+  responseDelaySeconds: number;
+  metadata?: Record<string, any>; // ✅ Add this line
+} | null> {
+  this.ensureInitialized();
+
+  try {
+    const profile = await this.supabaseClient.getHostProfile(hostAddress);
+    return profile ? {
+      displayName: profile.display_name,
+      bio: profile.bio,
+      profileImageUrl: profile.profile_image_url,
+      defaultPrice: profile.default_price,
+      defaultCurrency: profile.default_currency,
+      timezone: profile.timezone,
+      agentPersonality: profile.agent_personality,
+      autoConfirmMeetings: profile.auto_confirm_meetings,
+      responseDelaySeconds: profile.response_delay_seconds,
+      metadata: profile.metadata // ✅ Use it here
+    } : null;
+  } catch (error) {
+    console.error('Error getting host profile:', error);
+    return null;
+  }
+}
+
 
   // Analytics and Statistics
   async getHostStats(hostAddress: string): Promise<{
@@ -415,6 +420,18 @@ class PersistentSessionManager {
       console.error('Error clearing expired sessions:', error);
     }
   }
+
+  async updateSessionData(sessionId: string, newMetadata: Record<string, any>): Promise<void> {
+  this.ensureInitialized();
+
+  const session = await this.getSession(sessionId);
+  if (!session) throw new Error(`Session ${sessionId} not found`);
+
+  const updatedMetadata = { ...session.metadata, ...newMetadata };
+
+  await this.updateSession(sessionId, { metadata: updatedMetadata });
+}
+
 }
 
 export default PersistentSessionManager;

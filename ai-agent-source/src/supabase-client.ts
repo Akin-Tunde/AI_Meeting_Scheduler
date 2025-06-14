@@ -1,4 +1,5 @@
-import { createClient, SupabaseClient as SupabaseJSClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
+import type { Database } from '@supabase/supabase-js';
 
 // Database types based on our schema
 export interface Session {
@@ -63,14 +64,18 @@ export interface SessionState {
 }
 
 class SupabaseClient {
-  private client: SupabaseJSClient;
+  private client: ReturnType<typeof createClient>;
   private isInitialized: boolean = false;
 
   constructor() {
     // These would be set via environment variables in production
-    const supabaseUrl = process.env.SUPABASE_URL || 'https://your-project.supabase.co';
-    const supabaseKey = process.env.SUPABASE_ANON_KEY || 'your-anon-key';
-    
+    const supabaseUrl = process.env.SUPABASE_URL!;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY!;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Supabase URL and Key must be provided.');
+    }
+
     this.client = createClient(supabaseUrl, supabaseKey);
   }
 
@@ -430,4 +435,3 @@ class SupabaseClient {
 }
 
 export default SupabaseClient;
-
